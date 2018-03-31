@@ -1,0 +1,18 @@
+# ----------- CONFIGURABLE START -----------
+title:            "Jiajun's Blog"
+description:      "Such theme, very cool."
+signoff:          "佳俊"
+facebook_appid:   # APP ID for like button, remove from /_includes/share.html if unwanted.
+google_analytics: # Set tracking, remove from /javascripts/basic.js if unwanted.
+share:            false # Turn on twitter and facebook share buttons
+
+links:
+ - name:         Jiajun's Blog
+   url:          /
+   external:     false
+# ------------ CONFIGURABLE END ------------
+
+permalink:        /posts/:title
+defaults:
+  - values:
+      layout: "default"
