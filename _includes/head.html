@@ -14,6 +14,21 @@ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorM
   MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 </script>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            equationNumbers: {
+                autoNumber: "AMS"
+            }
+        },
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\(', '\)'] ],
+            displayMath: [ ['$$','$$'] ],
+            processEscapes: true,
+        }
+    });
+</script>
+
 <style>
   table{
     border-left:1px solid #000000;border-top:1px solid #000000;
