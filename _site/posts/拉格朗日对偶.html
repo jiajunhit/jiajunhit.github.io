@@ -1,0 +1,161 @@
+
+<!doctype>
+<html lang="en">
+  <head>
+    <meta content='拉格朗日对偶 - Jiajun's Blog' name='title' />
+    <meta content='拉格朗日对偶 - Jiajun's Blog' name='og:title' />
+    <title>拉格朗日对偶</title>
+    <link href='http://localhost:4000/images/jiajun.jpeg' rel='shortcut icon'>
+<link href='http://localhost:4000/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='http://localhost:4000/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+<!-- MathJax Section -->
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            equationNumbers: {
+                autoNumber: "AMS"
+            }
+        },
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\(', '\)'] ],
+            displayMath: [ ['$$','$$'] ],
+            processEscapes: true,
+        }
+    });
+</script>
+
+<style>
+  table{
+    border-left:1px solid #000000;border-top:1px solid #000000;
+    width: 100%;
+    word-wrap:break-word; word-break:break-all;
+  }
+  table th{
+  text-align:center;
+  }
+  table th,td{
+    border-right:1px solid #000000;border-bottom:1px solid #000000;
+  }
+</style>
+
+
+
+  <meta content='http://localhost:4000/posts/%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E5%AF%B9%E5%81%B6' property='og:url' />
+  <meta content="一般的优化问题，通常的做法是对原函数求导数，导数为0的点为局部最优，而对于凸函数，导数为0的点即为全局最优。对于有限制条件的优化问题，直接求导令导数为0，直接求得最优值往往是不现实的。因为导数为0的解很有可能不满足限制条件。这个时候就..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+
+
+
+
+
+  </head>
+  <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
+    <header class="tc mt4">
+    
+    </header>
+    <div class="mw7 bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
+      <nav class="bb b--light-gray pv4 tc" aria-label="Main">
+        
+          <a class="link blue hover-mid-gray mh2 pv1"
+             href="http://localhost:4000/">
+             Jiajun's Blog
+           </a>
+        
+      </nav>
+
+      <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
+        
+          <div class="mb4">
+            <div class="fw600 light-silver mt1">30 Dec 2017</div>
+            <h1 class="ttu f3 mt0 lh-title cb mb2">
+              
+              拉格朗日对偶
+            </h1>
+            
+          </div>
+        
+        <div class="markdown-body">
+          <p>一般的优化问题，通常的做法是对原函数求导数，导数为0的点为<strong>局部最优</strong>，而对于<strong>凸函数</strong>，导数为0的点即为<strong>全局最优</strong>。</p>
+
+<p>对于有<strong>限制条件</strong>的优化问题，直接求导令导数为0，直接求得最优值往往是不现实的。因为导数为0的解很有可能不满足<strong>限制条件</strong>。</p>
+
+<p>这个时候就可以利用拉格朗日对偶（Lagrange duality）来“去掉”限制条件。</p>
+
+<h2 id="优化问题">优化问题</h2>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align}
+\text{minimize } & f_0(x)\\
+\text{subject to } &f_i(x) \leq 0,i=1,...,m\\
+&h_i(x)=0,i=1,…,p\\
+\end{align} %]]></script>
+
+<p>以上的 $f_i(x)$ 代表了所有的<strong>不等式约束</strong>（大于号的约束条件可以转化成小于号的约束条件），而 $h_i(x)$ 代表了所有的<strong>等式约束</strong></p>
+
+<h2 id="拉格朗日函数">拉格朗日函数</h2>
+
+<script type="math/tex; mode=display">L(x,\alpha,\beta)=f_0(x)+\sum_{i=1}^{m}{\lambda_if_i(x)}+\sum_{i=1}^{p}{\nu_{i}h_i(x)}</script>
+
+<p>其中向量 $\lambda$ 和 $\nu$ 称为对偶变量，或者<strong>Lagrange 乘子向量</strong>。</p>
+
+<h2 id="拉格朗日对偶函数">拉格朗日对偶函数</h2>
+<p><script type="math/tex">% <![CDATA[
+\begin{align}
+g(\lambda,\nu) 
+& = \inf_{x \in D}L(x, \lambda, \nu)\\
+& = \inf_{x \in D} \left( f_0(x) + \sum_{i=1}^{m}{\lambda_if_i(x)}+\sum_{i=1}^{p}{\nu_{i}h_i(x)}\right)
+\end{align} %]]></script></p>
+
+<p>可以证明，即使原始的问题 $f_0(x)$ 不是凸的，$g(\lambda,\nu)$ 是<strong>凹函数</strong>。（<em>这里就不证明了</em>）</p>
+
+<p>对于任意的可行的 $\tilde{x}$：</p>
+
+<script type="math/tex; mode=display">f_0(\tilde{x}) \geq L(\tilde{x}, \lambda, \nu) \geq \inf_{x \in D} L(x, \lambda, \nu) = g(\lambda,\nu)</script>
+
+<blockquote>
+  <p>The dual function provides a lower bound on the optimal value
+对偶函数对于原来的优化问题提供了<strong>下边界</strong></p>
+</blockquote>
+
+<p>这里注意<strong>自变量</strong>的变化，最初的优化问题是关于 $x$ 的函数，而对偶函数是关于 $\lambda$ 和 $\nu$ 的函数。</p>
+
+<p>具体转化的过程，可以参考：<a href="http://xiaosheng.me/2017/05/01/article55/">拉格朗日对偶性</a></p>
+
+<h3 id="简单来说">简单来说</h3>
+<p>我们要求得原优化问题的解（<strong>最小值</strong>），由于限制条件的存在，最小值不易求得，为了更方便求得原优化问题的解，利用拉格朗日对偶函数，得到原优化问题的下边界。</p>
+
+<p>而当满足<strong>KKT条件</strong>时，其下边界就是原优化问题的解。</p>
+
+
+        </div>
+        
+
+      </main>
+      <section class="fixed-l mw7 center w-100 top-50 tc pb4 nt4">
+  
+    <a href="http://localhost:4000/posts/%E5%A4%8D%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%B0%83%E5%88%B6%E4%B8%8E%E8%A7%A3%E8%B0%83-%E5%9F%BA%E5%B8%A6" class="no-underline f1 light-blue hover-silver nl5 fl-l ph3">‹</a>
+  
+  
+    <a href="http://localhost:4000/posts/Hello-World" class="no-underline f1 light-blue hover-silver nr5 fr-l ph3">›</a>
+  
+</section>
+    </div>
+    <footer class="mw7 center tc pt3 pb4 silver">
+      Visit my <a href="http://github.com/jiajunhit" class="link silver hover-blue pv1" target="_blank">GitHub</a>.
+    </footer>
+  </body>
+</html>

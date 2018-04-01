@@ -1,0 +1,152 @@
+
+<!doctype>
+<html lang="en">
+  <head>
+    <meta content='循环前缀的代价 - Jiajun's Blog' name='title' />
+    <meta content='循环前缀的代价 - Jiajun's Blog' name='og:title' />
+    <title>循环前缀的代价</title>
+    <link href='http://localhost:4000/images/jiajun.jpeg' rel='shortcut icon'>
+<link href='http://localhost:4000/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='http://localhost:4000/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+<!-- MathJax Section -->
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            equationNumbers: {
+                autoNumber: "AMS"
+            }
+        },
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\(', '\)'] ],
+            displayMath: [ ['$$','$$'] ],
+            processEscapes: true,
+        }
+    });
+</script>
+
+<style>
+  table{
+    border-left:1px solid #000000;border-top:1px solid #000000;
+    width: 100%;
+    word-wrap:break-word; word-break:break-all;
+  }
+  table th{
+  text-align:center;
+  }
+  table th,td{
+    border-right:1px solid #000000;border-bottom:1px solid #000000;
+  }
+</style>
+
+
+
+  <meta content='http://localhost:4000/posts/%E5%BE%AA%E7%8E%AF%E5%89%8D%E7%BC%80%E7%9A%84%E4%BB%A3%E4%BB%B7' property='og:url' />
+  <meta content="从额外信道带宽的角度假设采样率：不随着循环前缀（cyclic prefix）的插入而改变（事实上多数的多载波系统中都是如此），系统所要求的带宽也同样保持不变。然而，保持同样的采样率也就意味着，块长度（block length）变长了$..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+
+
+
+
+
+  </head>
+  <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
+    <header class="tc mt4">
+    
+    </header>
+    <div class="mw7 bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
+      <nav class="bb b--light-gray pv4 tc" aria-label="Main">
+        
+          <a class="link blue hover-mid-gray mh2 pv1"
+             href="http://localhost:4000/">
+             Jiajun's Blog
+           </a>
+        
+      </nav>
+
+      <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
+        
+          <div class="mb4">
+            <div class="fw600 light-silver mt1">09 Apr 2017</div>
+            <h1 class="ttu f3 mt0 lh-title cb mb2">
+              
+              循环前缀的代价
+            </h1>
+            
+          </div>
+        
+        <div class="markdown-body">
+          <h2 id="从额外信道带宽的角度">从额外信道带宽的角度</h2>
+
+<p>假设采样率：</p>
+
+<script type="math/tex; mode=display">\frac{1}{T_s}=\widetilde{N}\cdot \varDelta f=W</script>
+
+<p>不随着循环前缀（<em>cyclic prefix</em>）的插入而改变（事实上多数的多载波系统中都是如此），系统所要求的带宽也同样保持不变。</p>
+
+<p>然而，保持同样的采样率也就意味着，块长度（<em>block length</em>）变长了$\frac{v}{N}$，而且吞吐效率也会下降为原来的：</p>
+
+<script type="math/tex; mode=display">\frac{1}{1+\frac{v}{N}}=\frac{N}{N+v}</script>
+
+<p>付出代价的同时也减小了ISI，这也使得在每个子载波中，更高阶的调制方法（<em>higher order alphabets</em>）得以使用。</p>
+
+<p><br /></p>
+
+<p>如果：采样率增加了${(\frac{N}{N+v})}^{-1}$，那么插入循环前缀之后的块长度和之前的相同，然而此时所需的带宽增加了：</p>
+
+<script type="math/tex; mode=display">W'=W \cdot \frac{N+v}{N}</script>
+
+<p>但是这种方案在实际中应用较少。</p>
+
+<hr />
+
+<h2 id="从额外信号能量的角度">从额外信号能量的角度</h2>
+
+<p>假设信息序列${X_k}$的实部和虚部具有相同的平均能量：</p>
+
+<script type="math/tex; mode=display">E[Re(X_k)]^2=E[Im(X_k)]^2</script>
+
+<p>那么可以直接证明，IDFT后所输出的时域采样信号${x_n}$也具有相同的平均能量：</p>
+
+<script type="math/tex; mode=display">x_n=\frac{1}{\sqrt{N}}\sum_{k=1}^{N-1}(Re(X_k) + j \cdot Im(X_k))\cdot e^{\frac{j2\pi nk}{N}},\quad n=0,1,...,N-1</script>
+
+<p>而且：</p>
+
+<script type="math/tex; mode=display">E[x_n^2]= \epsilon</script>
+
+<p>对于插入了循环前缀的块来说，其能量从$N{\epsilon}$增加到$(N+v){\epsilon}$。</p>
+
+<p>然而， 所需的功率仍旧和之前一样。这是因为插入循环前缀之后的块（<em>prefixed block</em>）的持续时间也从$NT_s$增加到$(N+v)T_s$。</p>
+
+
+        </div>
+        
+
+      </main>
+      <section class="fixed-l mw7 center w-100 top-50 tc pb4 nt4">
+  
+    <a href="http://localhost:4000/posts/%E4%BF%A1%E5%99%AA%E6%AF%94" class="no-underline f1 light-blue hover-silver nl5 fl-l ph3">‹</a>
+  
+  
+    <a href="http://localhost:4000/posts/%E5%A4%8D%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%B0%83%E5%88%B6%E4%B8%8E%E8%A7%A3%E8%B0%83-%E5%9F%BA%E5%B8%A6" class="no-underline f1 light-blue hover-silver nr5 fr-l ph3">›</a>
+  
+</section>
+    </div>
+    <footer class="mw7 center tc pt3 pb4 silver">
+      Visit my <a href="http://github.com/jiajunhit" class="link silver hover-blue pv1" target="_blank">GitHub</a>.
+    </footer>
+  </body>
+</html>

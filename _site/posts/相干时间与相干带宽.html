@@ -1,0 +1,151 @@
+
+<!doctype>
+<html lang="en">
+  <head>
+    <meta content='相干时间与相干带宽 - Jiajun's Blog' name='title' />
+    <meta content='相干时间与相干带宽 - Jiajun's Blog' name='og:title' />
+    <title>相干时间与相干带宽</title>
+    <link href='http://localhost:4000/images/jiajun.jpeg' rel='shortcut icon'>
+<link href='http://localhost:4000/stylesheets/style.css' rel='stylesheet' type='text/css' />
+<link href='http://localhost:4000/stylesheets/syntax.css' rel='stylesheet' type='text/css' />
+
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no' name='viewport'>
+<meta content='text/html; charset=utf-8' http-equiv='content-type' />
+
+<!-- MathJax Section -->
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+            equationNumbers: {
+                autoNumber: "AMS"
+            }
+        },
+        tex2jax: {
+            inlineMath: [ ['$','$'], ['\(', '\)'] ],
+            displayMath: [ ['$$','$$'] ],
+            processEscapes: true,
+        }
+    });
+</script>
+
+<style>
+  table{
+    border-left:1px solid #000000;border-top:1px solid #000000;
+    width: 100%;
+    word-wrap:break-word; word-break:break-all;
+  }
+  table th{
+  text-align:center;
+  }
+  table th,td{
+    border-right:1px solid #000000;border-bottom:1px solid #000000;
+  }
+</style>
+
+
+
+  <meta content='http://localhost:4000/posts/%E7%9B%B8%E5%B9%B2%E6%97%B6%E9%97%B4%E4%B8%8E%E7%9B%B8%E5%B9%B2%E5%B8%A6%E5%AE%BD' property='og:url' />
+  <meta content="相干时间与相干带宽对于两个平稳信号$S_1$和$S_1$，它们的相关系数的绝对值大于0小于1时，两个信号相关。相关系数等于1时，两个信号相干。若两个信号的相关性较强，则可以认为两个信号为同一个信号，则可以将两个信号叠加。否则信号之间则..." property='og:description' />
+  <meta content="article" property="og:type" />
+
+<!-- - -->
+
+
+
+
+
+  </head>
+  <body class="lh-copy dark-gray pa0 f6 sans-serif bg-super-white">
+    <header class="tc mt4">
+    
+    </header>
+    <div class="mw7 bg-white mt4 mb3 center br2-ns bt bb ba-ns b--light-gray">
+      <nav class="bb b--light-gray pv4 tc" aria-label="Main">
+        
+          <a class="link blue hover-mid-gray mh2 pv1"
+             href="http://localhost:4000/">
+             Jiajun's Blog
+           </a>
+        
+      </nav>
+
+      <main class="tl f6 relative pa4 pa5-ns overflow-hidden">
+        
+          <div class="mb4">
+            <div class="fw600 light-silver mt1">01 Apr 2017</div>
+            <h1 class="ttu f3 mt0 lh-title cb mb2">
+              
+              相干时间与相干带宽
+            </h1>
+            
+          </div>
+        
+        <div class="markdown-body">
+          <h1 id="相干时间与相干带宽">相干时间与相干带宽</h1>
+
+<p>对于两个平稳信号$S_1$和$S_1$，它们的相关系数的绝对值大于0小于1时，两个信号<strong>相关</strong>。相关系数等于1时，两个信号<strong>相干</strong>。</p>
+
+<p>若两个信号的<strong>相关性较强</strong>，则可以认为<strong>两个信号为同一个信号</strong>，则可以将两个信号叠加。否则信号之间则互为干扰。</p>
+
+<hr />
+
+<h2 id="相干带宽">相干带宽</h2>
+
+<p>根据信道带宽与相干带宽的大小，可将信道分为频率选择性和非频率选择（平坦）性信道。</p>
+
+<p>在相关带宽${B}_{c}$ 内，信道条件基本不变。</p>
+
+<p>如果信号带宽在相干带宽之内${B}&lt;{B_c}$,则信号所经历的信道基本不变，此时信道称之为<strong>非频率选择性信道</strong>；而如果信号带宽大于相干带宽 （${B}&gt;{B_c}$） 信号将经历不同的信道条件，此时信道称之为<strong>频率选择性信道</strong>。</p>
+
+<p>对于<strong>每个子载波</strong>，如果 ${B}&lt;{B_c}$ ,每个载波在各自频段内信道信息基本不变，为平坦衰落；而如果${B&gt;B}_{c}$,每个符号在其自身频段内会经历剧烈的信道变化，为频率选择性衰落。</p>
+
+<h2 id="相干带宽与多径效应">相干带宽与多径效应</h2>
+<p>多径效应会带来<strong>时延扩展</strong>$T_m$。相干带宽近似等于时延扩展的倒数：</p>
+
+<script type="math/tex; mode=display">B_c \approx \frac{1}{T_m}</script>
+
+<p>由于多径效应的影响，信号到达时间会产生变化。由于到达时间的变化，同一载波内的符号之间会相互干扰，形成<strong>符号间干扰</strong>（ISI）。</p>
+
+<hr />
+
+<h2 id="相干时间">相干时间</h2>
+
+<p>相干时间用来描述<strong>信道变化的快慢</strong>。根据信号持续时间与相干时间大小，可将信道分为快衰落信道和慢（平稳）衰落信道。</p>
+
+<p>在相干时间${T}_{c}$内，信道条件基本不变。</p>
+
+<p>如果信号(码元、符号)持续时间$T$在相干时间之内（${T}&lt;{T_c}$）,则信号所经历的信道基本不变，此时信道称之为<strong>慢衰落信道</strong>；而如果信号持续时间大于相干时间（${T}&gt;{T_c}$）信号将经历不同的信道条件此时信道称之为<strong>快衰落信道</strong>。</p>
+
+<p>对于<strong>同一信号中的符号</strong>，如果${T}&lt;{T_c}$,每个符号在各自时间周期内信道信息基本不变，为平稳衰落；而如果${T}&gt;{T_c}$,每个符号在其自身时间周期内会经历剧烈的信道变化，为快衰落。</p>
+
+<h2 id="相干时间与多普勒频移">相干时间与多普勒频移</h2>
+<p>多普勒效应会带来<strong>多普勒扩展</strong>$B_m$。相干时间近似等于多普勒扩展的倒数：</p>
+
+<script type="math/tex; mode=display">T_c \approx \frac{1}{B_m}</script>
+
+<p>由于多普勒效应的影响，信号其中心频率会产生偏移。由于中心频率的频移，信号会对其他载波造成干扰，形成<strong>载波间干扰</strong>（ICI）。</p>
+
+        </div>
+        
+
+      </main>
+      <section class="fixed-l mw7 center w-100 top-50 tc pb4 nt4">
+  
+  
+    <a href="http://localhost:4000/posts/%E4%BF%A1%E5%99%AA%E6%AF%94" class="no-underline f1 light-blue hover-silver nr5 fr-l ph3">›</a>
+  
+</section>
+    </div>
+    <footer class="mw7 center tc pt3 pb4 silver">
+      Visit my <a href="http://github.com/jiajunhit" class="link silver hover-blue pv1" target="_blank">GitHub</a>.
+    </footer>
+  </body>
+</html>
