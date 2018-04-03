@@ -40,7 +40,7 @@
 }
 .markdown-body table th,
 .markdown-body table td {
-padding: .8em .4em;
+  padding: .8em .4em;
   border-bottom: 1px solid #CCC;
   border-bottom-color: rgba(0,0,0,0.2);
 }
