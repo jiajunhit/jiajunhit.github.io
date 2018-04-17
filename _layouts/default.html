@@ -1,13 +1,11 @@
 {% assign is_post = page.date %}
-<!doctype>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta content='{{ page.title }} - {{ site.title }}' name='title' />
-  <meta content='{{ page.title }} - {{ site.title }}' name='og:title' />
-  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-  <link rel="apple-touch-icon" href="/images/favicon.png">
+  <meta content="{{ page.title }} - {{ site.title }}" name="title"/>
+  <meta content="{{ page.title }} - {{ site.title }}" name="og:title"/>
   <title>{{site.title}}: {{page.title}}</title>
   {% include head.html %}
 </head>
